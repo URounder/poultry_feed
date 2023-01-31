@@ -62,10 +62,12 @@ def total_eggs(type_of_poultry, num_poultry):
 def egg_sales(type_of_poultry, num_poultry):
     total_dozens_of_eggs = total_eggs(type_of_poultry, num_poultry)
     total_sales = total_dozens_of_eggs * 7.0
+    total_sales += num_poultry * 18.0  # Stew Hen Sales
     return total_sales
 
 
-num_poultry = 100
+# ask user to enter the number of poultry
+num_poultry = int(input("Enter the number of poultry: "))
 
 feed_cost, food_consumed = total_cost_of_feeding("Rhode Island Red", num_poultry)
 print(f"The total feed cost is: ${feed_cost:.2f}")
@@ -82,5 +84,8 @@ print(
 print(f"The total sales is: ${egg_sales('Rhode Island Red', num_poultry):.2f}")
 
 print(
-    f"The total profit is: ${egg_sales('Rhode Island Red', num_poultry) - total_cost:.2f}"
+    f"The total profit for {num_poultry} birds is: ${egg_sales('Rhode Island Red', num_poultry) - total_cost:.2f}"
+)
+print(
+    f"The weekly profit is: ${(egg_sales('Rhode Island Red', num_poultry) - total_cost) / 120:.2f}"
 )
